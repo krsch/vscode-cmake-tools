@@ -20,6 +20,8 @@ interface VSCMakePaths {
  */
 class Paths {
   private _ninjaPath : string | null = null;
+  public globalStoragePath : string = path.join(this.userLocalDir, 'CMakeTools');
+  public storagePath : string | undefined = undefined;
 
   /**
    * The current user's home directory
@@ -66,7 +68,7 @@ class Paths {
    * The directory where CMake Tools should store user-specific persistent
    * data.
    */
-  get dataDir(): string { return path.join(this.userLocalDir, 'CMakeTools'); }
+   get dataDir(): string { return this.globalStoragePath; }
 
   /**
    * The "roaming" directory where CMake Tools stores roaming configuration
